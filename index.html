@@ -1,7 +1,68 @@
-<h2>temp page for test acces</h2>
-<audio controls="controls">
-<source src="https://zvukipro.com/uploads/files/2021-07/1627104739_21071.mp3" type="audio/mp3" />
-Your browser does not support the audio tag.
-</audio>
+<style>
+td {text-align: center;}
+</style>
+<center><img src=favicon.ico><p>For Lena and Polina<p>
+<table border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70%>⏹︎ ⏯︎
+<figure>
+  <figcaption id=top1>Listen Harry Potter music:</figcaption>
+  <audio tabindex="0" controls src="" id="snd1" preload="none">
+  </audio>
+</figure>
+</td><td width=15% onclick=n()>Next ⏭</td></table>
 
-<img src=favicon.ico>
+
+<script>
+i=0;
+const a = [
+"17291.mp3","21071.mp3","21631.mp3","22627.mp3","26399.mp3","27831.mp3","27907.mp3",
+"34255.mp3","34783.mp3","36591.mp3","45767.mp3","47139.mp3","89311.mp3",
+"0092be63a18ce282b9f.mp3","64d26844ae49994aaf.mp3","773d1a9a9804fa994.mp3","aef152c5aa30ca96cc03.mp3" ];
+
+const b = [
+"Knockturn Alley - John Towner Williams,Гарри Поттер и тайная комната",
+"Prolog - John Towner Williams",
+"Dumbledore's Farewell, Гарри Поттер и Принц-полукровка.<br>The City of Prague Philharmonic Orchestra, James Fitzpatrick, Nicholas Hooper, Evan Jolly",
+"Statues - Alexandre Desplat. Гарри Поттер и Дары Смерти: Часть II",
+"The Norwegian Ridgeback and a Change of Season. Stone - John Towner Williams",
+"Christmas at Hogwarts. Stone - John Towner Williams",
+"Obliviate. Гарри Поттер и Дары Смерти: Часть I - The City of Prague Philharmonic Orchestra, Alexandre Desplat, James Fitzpatrick",
+"Fawkes the Phoenix - The City of Prague Philharmonic Orchestra, Nic Raine. Гарри Поттер и Тайная комната",
+"Entry into the Great Hall and the Banquet - John Towner Williams",
+"Harry Potter - Main Theme - New World Orchestra",
+"Full prolog John Towner Williams - Hedwig's Theme",
+"Dueling the Basilisk - John Towner Williams.Гарри Поттер и тайная комната",
+"Voldemort - Patrick Doyle. Гарри Поттер и Кубок огня",
+"Black Lake. Гарри Поттер и Кубок огня - The City of Prague Philharmonic Orchestra, James Fitzpatrick",
+"Flight Of The Order Of The Phoenix - The City of Prague Philharmonic Orchestra, James Fitzpatrick",
+"A Window to the Past Azkoban - John Towner Williams, The City of Prague Philharmonic Orchestra, James Fitzpatrick",
+"Lily's Theme. Гарри Поттер и Дары Смерти: Часть II. - The City of Prague Philharmonic Orchestra, Alexandre Desplat, James Fitzpatrick, Tara Clark" ];
+
+const snd = document.querySelector("audio");
+const cap = document.querySelector("figcaption");
+
+snd.onended = (event) => {
+  console.log(
+    "audio has finished playing or no further data is available",
+  );
+
+ n()
+
+};
+
+function n(){
+  console.log(a[i]);
+  snd.src=a[i];
+
+  console.log(b[i]);
+  cap.innerHTML=b[i];
+  snd.play();
+ i++;
+if (i>=a.length) {i=0;}
+}
+
+function p(){i--;i--;if (i<0) {i=a.length-1;}n();}
+
+n();
+
+</script>
+
