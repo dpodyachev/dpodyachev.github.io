@@ -2,12 +2,12 @@
 <style>
 p,td {font-size:30px;}
 .lbl {text-align:left;}
-td {text-align:center;white-space:nowrap;}
+td {text-align:center;}
 .current {background: #aca;}
 </style>
 
 <center><img src=favicon.ico><p>For Lena and Polina<p>
-<table id=t1 border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70% onclick=snd.pause() > ⏹︎ ⏯︎
+<table id=t1 border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70%>⏹︎ ⏯︎
 
 <figure>
   <figcaption id=top1>Listen Harry Potter music:</figcaption>
@@ -28,7 +28,7 @@ const a = [
 const b = [
 "Knockturn Alley - John Towner Williams,Гарри Поттер и тайная комната",
 "Prolog - John Towner Williams",
-"Dumbledore's Farewell, Гарри Поттер и Принц-полукровка. The City of Prague Philharmonic Orchestra, James Fitzpatrick, Nicholas Hooper, Evan Jolly",
+"Dumbledore's Farewell, Гарри Поттер и Принц-полукровка.<br>The City of Prague Philharmonic Orchestra, James Fitzpatrick, Nicholas Hooper, Evan Jolly",
 "Statues - Alexandre Desplat. Гарри Поттер и Дары Смерти: Часть II",
 "The Norwegian Ridgeback and a Change of Season. Stone - John Towner Williams",
 "Christmas at Hogwarts. Stone - John Towner Williams",
@@ -82,18 +82,13 @@ function p(){
 }
 
 
-function touch(m) { console.log("selected "+m);
-  if (i>0)  document.getElementById('row'+(i-1)).className='lbl';
-  if (i==0) {document.getElementById('row'+(b.length-1)).className='lbl';}
-  i=m;n();
-}
 
 var tableRef = document.getElementById('t1').getElementsByTagName('tbody')[0];
 
 for (m=0;m<b.length;m++)
 {
 var newRow=tableRef.insertRow(tableRef.rows.length);
-newRow.innerHTML="<td colspan=3 class=lbl id=row"+m+" onclick=touch('"+m+"')>"+m+": "+b[m].slice(0,60)+"</td>\n";
+newRow.innerHTML="<td colspan=3 class=lbl id=row"+m+">"+m+": "+b[m]+"</td>\n";
 }
 
 n();
