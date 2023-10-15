@@ -1,17 +1,14 @@
-<!DOCTYPE html>
 <style>
 p,td {font-size:30px;}
-.lbl {text-align:left;}
 td {text-align:center;}
-.current {background: #aca;}
 </style>
 
 <center><img src=favicon.ico><p>For Lena and Polina<p>
-<table id=t1 border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70%>⏹︎ ⏯︎
+<table border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70%>⏹︎ ⏯︎
 
 <figure>
   <figcaption id=top1>Listen Harry Potter music:</figcaption>
-  <audio tabindex="0" controls id="snd1" preload="none">
+  <audio tabindex="0" controls src="" id="snd1" preload="none">
   </audio>
 </figure>
 
@@ -47,50 +44,23 @@ const b = [
 const snd = document.querySelector("audio");
 const cap = document.querySelector("figcaption");
 
-console.log("may "+a.length+"=="+b.length)
-
 snd.onended = (event) => {
  console.log("audio has finished playing or no further data is available");
  n()
 };
 
 function n(){
-  console.log(i+"="+a[i]);
+  console.log(a[i]);
   snd.src=a[i];
 
   console.log(b[i]);
   cap.innerHTML=b[i];
   snd.play();
-
-  document.getElementById('row'+i).className='current';
-  if (i>0)  document.getElementById('row'+(i-1)).className='lbl';
-  if (i==0) {document.getElementById('row'+(b.length-1)).className='lbl';}
-
-  i++;
-  if (i>=a.length) {i=0;}
-  if (i<a.length) {document.getElementById('row'+i).className='lbl';}
-
-  console.log("index:"+i);
+ i++;
+if (i>=a.length) {i=0;}
 }
 
-function p(){
- if (i==0) {i=a.length;}
- i--;i--;
- if (i<0) {i=16;}
-
- n();
-}
-
-
-
-var tableRef = document.getElementById('t1').getElementsByTagName('tbody')[0];
-
-for (m=0;m<b.length;m++)
-{
-var newRow=tableRef.insertRow(tableRef.rows.length);
-newRow.innerHTML="<td colspan=3 class=lbl id=row"+m+">"+m+": "+b[m]+"</td>\n";
-}
+function p(){i--;i--;if (i<0) {i=a.length-1;}n();}
 
 n();
-
 </script>
