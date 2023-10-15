@@ -1,6 +1,8 @@
 <style>
-td {text-align: center;}
+p,td {font-size:30px;}
+td {text-align:center;}
 </style>
+
 <center><img src=favicon.ico><p>For Lena and Polina<p>
 <table border=1 width=80%><tr height=200><td width=15% onclick=p()>⏮ Previous</td><td width=70%>⏹︎ ⏯︎
 <figure>
@@ -41,12 +43,8 @@ const snd = document.querySelector("audio");
 const cap = document.querySelector("figcaption");
 
 snd.onended = (event) => {
-  console.log(
-    "audio has finished playing or no further data is available",
-  );
-
+ console.log("audio has finished playing or no further data is available");
  n()
-
 };
 
 function n(){
@@ -65,4 +63,3 @@ function p(){i--;i--;if (i<0) {i=a.length-1;}n();}
 n();
 
 </script>
-
